@@ -3,6 +3,8 @@ python:
   - "3.7"
 install:
   - pip install awscli
+script:
+  - pytest
 after_success:
   - aws s3 sync ./app/ s3://flexion-master/flexion-app --profile heman
 branches:
