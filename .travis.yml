@@ -13,8 +13,7 @@ branches:
 cache:
   directories:
     - $HOME/.m2
-    - node
-    - node_modules
+    - app
 
 env:
   global:
@@ -23,18 +22,17 @@ env:
     - DEPLOY_BRANCHES=main # optional - all branches defined in "branches" above is the default
     # MAVEN PROJECTS:
     # - DEPLOY_SOURCE_DIR=$TRAVIS_BUILD_DIR/site/target # optional - if your war file is somewhere other than ./target
-    - DEPLOY_SOURCE_DIR=~/.m2/app
+    - DEPLOY_SOURCE_DIR=/home/travis/build/Heman-HomeProjects/Flexion-app/app
     # GRADLE PROJECTS:
     #- DEPLOY_SOURCE_DIR=$TRAVIS_BUILD_DIR/site/build/libs # optional - if your war file is somewhere other than ./target
     #- GRADLE_PARAMS="optional additional paremters to pass along to gradle if using build-gradle.sh"
 
 before_script:
   - git clone https://github.com/Heman-HomeProjects/Flexion-app.git
-  - cp Flexion-app/flexionapp.py ~/.m2/app # optional
-  - cp Flexion-app/deploy.sh ~/.m2/app
-  - cp Flexion-app/build.rb ~/.m2/app
-  - cp Flexion-app/flexionapp_image.png ~/.m2/app
-  - ls -l ~/.m2/app
+  - cp Flexion-app/flexionapp.py /home/travis/build/Heman-HomeProjects/Flexion-app/app # optional
+  - cp Flexion-app/deploy.sh /home/travis/build/Heman-HomeProjects/Flexion-app/app
+  - cp Flexion-app/build.rb /home/travis/build/Heman-HomeProjects/Flexion-app/app
+  - cp Flexion-app/flexionapp_image.png /home/travis/build/Heman-HomeProjects/Flexion-app/app
 
 before_install:
   - chmod +x deploy.sh
@@ -42,6 +40,6 @@ before_install:
 script:
   # MAVEN PROJECTS:
   # - Flexion-app/build.rb --skip-tests-if-pr && Flexion-app/deploy.sh
-  - $HOME/.m2/app/deploy.sh
+  - /home/travis/build/Heman-HomeProjects/Flexion-app/app/deploy.sh
   # GRADLE PROJECTS:
   #- travis-s3-deploy/build-gradle.sh && travis-s3-deploy/deploy.sh
