@@ -65,3 +65,19 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 ###### 6. Add app title on the top beside the logo
 
 ## CI/CD
+
+###### 1. Everytime the code is merged into "main" branch the code is deployed to "flexion-master" s3 bucket on AWS
+
+###### 2. To make updates to the main branch, push the changes to "flexion-dev" branch and then merge to main
+
+###### 3. once the changes in code are made run below commands:
+
+###### -- git add --all or add filename
+
+###### -- git update-index --add --chmod=+x deploy.sh ( to assign read/write permissions)
+
+###### -- git update-index --add --chmod=+x build.rb ( to assign read/write permissions)
+
+###### -- git commit -m " message "
+
+###### -- git push origin branch_name ( flexion-dev in this case)
