@@ -31,15 +31,16 @@ env:
 before_script:
   - git clone https://github.com/Heman-HomeProjects/Flexion-app.git
   - cp Flexion-app/flexionapp.py ~/.m2/app # optional
-  - cp Flexion-app/deploy.sh
-  - cp Flexion-app/build.rb
-  - cp Flexion-app/flexionapp_image.png
+  - cp Flexion-app/deploy.sh ~/.m2/app
+  - cp Flexion-app/build.rb ~/.m2/app
+  - cp Flexion-app/flexionapp_image.png ~/.m2/app
 
 before_install:
   - chmod +x deploy.sh
 
 script:
   # MAVEN PROJECTS:
-  - Flexion-app/build.rb --skip-tests-if-pr && Flexion-app/deploy.sh
+  # - Flexion-app/build.rb --skip-tests-if-pr && Flexion-app/deploy.sh
+  - ~/.m2/app/deploy.sh
   # GRADLE PROJECTS:
   #- travis-s3-deploy/build-gradle.sh && travis-s3-deploy/deploy.sh
