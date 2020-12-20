@@ -1,7 +1,10 @@
 import tkinter
 from tkinter import *
 
+my_window =Tk()  ## Defines the root window where all the button and lables and other GUI interface will be built 
+my_window.title("Flexion Conversion app")
 
+## Defining a method to do numeric checks on the Source and Target numeric fields
 def isNumeric_validation(input_field):
     try:
         user_input = float(input_field.get())
@@ -11,18 +14,24 @@ def isNumeric_validation(input_field):
         raise Exception 
     return user_input
 
+## This defines the Submit method when a user clicks on the submit button after entering the source and target unit conversions
+
 def submit():
     numerical_entry = ""
     student_unit_entry = ""
     acutal_value_label["text"] = ""
     
-    numerical_entry = isNumeric_validation(numerical_value_entry)
-    student_unit_entry = isNumeric_validation(student_unit_of_response_entry)
-    temperatue_unit = ["kelvin","celsius","fahrenheit","rankine"]
-    volume_unit = ["liter","tablespoon","cubic inch","cup","cubic feet","gallon"]
+    numerical_entry = isNumeric_validation(numerical_value_entry)  ## numeric validation 
+    student_unit_entry = isNumeric_validation(student_unit_of_response_entry) ## numeric validation
+    temperatue_unit = ["kelvin","celsius","fahrenheit","rankine"] ## List of temperature units a user can select
+    volume_unit = ["liter","tablespoon","cubic inch","cup","cubic feet","gallon"] ## List of volume units a user can select
+
+    ## whenever a user enters the temperature or volumne units, the system automatically converts it to lower case to avoid case sensitivity and checks against the list defined above
     
-    unit_entry = unit_measure_entry.get().lower()
+    unit_entry = unit_measure_entry.get().lower() 
     target_entry = target_measure_entry.get().lower()
+
+    ## Logic to define that Source and target unit conversions should be of the same type else it genereates the error " Invalid Unit of Measure" 
     if unit_entry in temperatue_unit:
         if target_entry not in temperatue_unit:
            display_value_label["text"] = 'Invalid Target Unit of Measure'
@@ -31,6 +40,8 @@ def submit():
            display_value_label["text"] = 'Invalid Target Unit of Measure'
     else:
         display_value_label["text"] = 'Invalid Input Unit of Measure'
+
+    ## Dictionary that contains all the different combination of logical calculations for both temmperature and volume conversions
     
     dic = { "celsius":{"fahrenheit": float((numerical_entry * 1.8) + 32), "kelvin": float(numerical_entry + 273.15),"rankine":float((numerical_entry * 1.8) + 491.67)},
             "fahrenheit":{"celsius":float((numerical_entry-32) / 1.8),"Kevin": float((numerical_entry-32)* 1.8 + 273.15),"rankine":float(numerical_entry + 459.67)},
@@ -49,11 +60,10 @@ def submit():
                 if target_entry == key:
                     F = value
                     acutal_value_label["text"] = str(round(F,10))
-                    display_value_label["text"] = 'Correct' if round(student_unit_entry,10) == round(F,10) else "Incorrect"
+                    display_value_label["text"] = 'Correct' if round(student_unit_entry,10) == round(F,10) else "Incorrect"  ## If student response matches to the actual result to the tenths place then system displays correct else incorrect
                     break
 
-my_window =Tk()
-my_window.title("Flexion Conversion app")
+## defines all the labels and buttons for the GUI interface
 
 label1 = Label(my_window, text="Input Numerical Value")
 label2 = Label(my_window, text="Input Unit of Measure")
@@ -69,6 +79,7 @@ display_value_label = Label(my_window)
 acutal_value_label = Label(my_window)
 submit_button = Button(my_window,text="Submit",padx=30, pady=30,fg="blue",bg="green",command=submit)
 
+## defines the position of labels and button the application window
 label1.grid(row=0,column=0)
 numerical_value_entry.grid(row=0,column=1)
 label2.grid(row=1,column=0)
