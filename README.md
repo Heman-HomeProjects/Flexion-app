@@ -70,7 +70,7 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 
 ###### 2. To make updates to the main branch, push the changes to "flexion-dev" branch and then merge to main
 
-###### 3. once the changes in code are made run below commands:
+###### 3. once the changes in code on your local are made run below commands:
 
 ###### -- git add --all or add filename
 
@@ -84,6 +84,6 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 
 ###### -- Create a new pull request to merge to main branch and then merge the request.
 
-###### -- The CI/CD pipeline willl kick off using the Travis CI and which will kick off the deploy.sh script and copy the files to s3 bucket.
+###### -- The CI/CD pipeline will kick off using the Travis CI and which will kick off the deploy.sh script and copy the files to s3 bucket.
 
 ###### -- The Travis CI link: https://travis-ci.com/dashboard
