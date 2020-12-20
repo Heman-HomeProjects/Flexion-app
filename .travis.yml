@@ -27,7 +27,7 @@ before_script:
   - git clone https://github.com/Heman-HomeProjects/Flexion-app.git
   - cp Flexion-app/flexionapp.py /home/travis/build/Heman-HomeProjects/Flexion-app/app
   - cp Flexion-app/deploy.sh /home/travis/build/Heman-HomeProjects/Flexion-app/app
-  - cp Flexion-app/build.rb /home/travis/build/Heman-HomeProjects/Flexion-app/app
+  # - cp Flexion-app/build.rb /home/travis/build/Heman-HomeProjects/Flexion-app/app
   - cp Flexion-app/flexionapp_image.png /home/travis/build/Heman-HomeProjects/Flexion-app/app
   - chmod +x /home/travis/build/Heman-HomeProjects/Flexion-app/app/deploy.sh
   - chmod +x /home/travis/build/Heman-HomeProjects/Flexion-app/app/build.rb
