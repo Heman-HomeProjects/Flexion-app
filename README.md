@@ -81,3 +81,9 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 ###### -- git commit -m " message "
 
 ###### -- git push origin branch_name ( flexion-dev in this case)
+
+###### -- Create a new pull request to merge to main branch and then merge the request.
+
+###### -- The CI/CD pipeline willl kick off using the Travis CI and which will kick off the deploy.sh script and copy the files to s3 bucket.
+
+###### -- The Travis CI link: https://travis-ci.com/dashboard
