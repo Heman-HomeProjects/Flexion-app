@@ -125,40 +125,40 @@ travis_end
 travis_start "aws_cp"
 for file in $files
 do
-    aws s3 cp $file s3://$DEPLOY_BUCKET/$target
+    aws s3 cp $file s3://$DEPLOY_BUCKET/app/
 done
 travis_end
 
-if [[ $PURGE_OLDER_THAN_DAYS -ge 1 ]]
-then
-    travis_start "clean_s3"
-    echo "Cleaning up builds in S3 older than $PURGE_OLDER_THAN_DAYS days . . ."
+# if [[ $PURGE_OLDER_THAN_DAYS -ge 1 ]]
+# then
+#     travis_start "clean_s3"
+#     echo "Cleaning up builds in S3 older than $PURGE_OLDER_THAN_DAYS days . . ."
 
-    cleanup_prefix=builds/${DEPLOY_BUCKET_PREFIX}${DEPLOY_BUCKET_PREFIX:+/}
-    # TODO: this works with GNU date only
-    older_than_ts=`date -d"-${PURGE_OLDER_THAN_DAYS} days" +%s`
+#     cleanup_prefix=builds/${DEPLOY_BUCKET_PREFIX}${DEPLOY_BUCKET_PREFIX:+/}
+#     # TODO: this works with GNU date only
+#     older_than_ts=`date -d"-${PURGE_OLDER_THAN_DAYS} days" +%s`
 
-    for suffix in deploy pull-request
-    do
-        aws s3api list-objects --bucket $DEPLOY_BUCKET --prefix $cleanup_prefix$suffix/ --output=text | \
-        while read -r line
-        do
-            last_modified=`echo "$line" | awk -F'\t' '{print $4}'`
-            if [[ -z $last_modified ]]
-            then
-                continue
-            fi
-            last_modified_ts=`date -d"$last_modified" +%s`
-            filename=`echo "$line" | awk -F'\t' '{print $3}'`
-            if [[ $last_modified_ts -lt $older_than_ts ]]
-            then
-                if [[ $filename != "" ]]
-                then
-                    echo "s3://$DEPLOY_BUCKET/$filename is older than $PURGE_OLDER_THAN_DAYS days ($last_modified). Deleting."
-                    aws s3 rm "s3://$DEPLOY_BUCKET/$filename"
-                fi
-            fi
-        done
-    done
-    travis_end
-fi
+#     for suffix in deploy pull-request
+#     do
+#         aws s3api list-objects --bucket $DEPLOY_BUCKET --prefix $cleanup_prefix$suffix/ --output=text | \
+#         while read -r line
+#         do
+#             last_modified=`echo "$line" | awk -F'\t' '{print $4}'`
+#             if [[ -z $last_modified ]]
+#             then
+#                 continue
+#             fi
+#             last_modified_ts=`date -d"$last_modified" +%s`
+#             filename=`echo "$line" | awk -F'\t' '{print $3}'`
+#             if [[ $last_modified_ts -lt $older_than_ts ]]
+#             then
+#                 if [[ $filename != "" ]]
+#                 then
+#                     echo "s3://$DEPLOY_BUCKET/$filename is older than $PURGE_OLDER_THAN_DAYS days ($last_modified). Deleting."
+#                     aws s3 rm "s3://$DEPLOY_BUCKET/$filename"
+#                 fi
+#             fi
+#         done
+#     done
+#     travis_end
+# fi
