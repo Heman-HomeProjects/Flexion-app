@@ -1,12 +1,10 @@
-language: python
-python:
-  - "3.7"
-install:
-  - pip install awscli
-script:
-  - pytest
-after_success:
-  - aws s3 sync ./app/ s3://flexion-master/flexion-app --profile heman
-branches:
+deploy:
+  provider: s3
+  bucket: arn:aws:s3:::flexion-master
+  skip_cleanup: true
+  local_dir: app
+  upload-dir: flexion-app
+  region: us-west-2
+  branches:
   only:
     - main
