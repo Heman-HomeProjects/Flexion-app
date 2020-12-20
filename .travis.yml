@@ -1,20 +1,38 @@
-language: python
-python:
-  - "3.5"
-cache: pip
-install:
-  # Install any dependencies required for building your site here.
-  # `awscli` is required for invalidation of CloudFront distributions.
-  - pip install awscli
-script:
-  - python flexionapp.py
-deploy:
-  provider: s3
-  bucket: arn:aws:s3:::flexion-master
-  skip_cleanup: true
-  local_dir: app
-  upload-dir: flexion-app
-  region: us-west-2
-  branches:
+language: java
+
+jdk:
+  - openjdk8
+
+install: true
+
+branches:
   only:
     - main
+
+# MAVEN PROJECTS ONLY:
+cache:
+  directories:
+    - $HOME/.m2
+    - node
+    - node_modules
+
+env:
+  global:
+    - DEPLOY_BUCKET=flexion-master
+    # - DEPLOY_BUCKET_PREFIX=exampleco # optional if using a shared deployment bucket
+    - DEPLOY_BRANCHES=main # optional - all branches defined in "branches" above is the default
+    # MAVEN PROJECTS:
+    - DEPLOY_SOURCE_DIR=$TRAVIS_BUILD_DIR/site/target # optional - if your war file is somewhere other than ./target
+    # GRADLE PROJECTS:
+    #- DEPLOY_SOURCE_DIR=$TRAVIS_BUILD_DIR/site/build/libs # optional - if your war file is somewhere other than ./target
+    #- GRADLE_PARAMS="optional additional paremters to pass along to gradle if using build-gradle.sh"
+
+before_script:
+  - git clone https://github.com/Heman-HomeProjects/Flexion-app.git
+  - cp Flexion-app/app/ ~/.m2/app # optional
+
+script:
+  # MAVEN PROJECTS:
+  - travis-s3-deploy/deploy.sh
+  # GRADLE PROJECTS:
+  #- travis-s3-deploy/build-gradle.sh && travis-s3-deploy/deploy.sh
