@@ -33,6 +33,7 @@ before_script:
   - cp Flexion-app/deploy.sh /home/travis/build/Heman-HomeProjects/Flexion-app/app
   - cp Flexion-app/build.rb /home/travis/build/Heman-HomeProjects/Flexion-app/app
   - cp Flexion-app/flexionapp_image.png /home/travis/build/Heman-HomeProjects/Flexion-app/app
+  - chmod +x /home/travis/build/Heman-HomeProjects/Flexion-app/app/deploy.sh
 
 before_install:
   - chmod +x deploy.sh
