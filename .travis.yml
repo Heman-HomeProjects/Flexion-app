@@ -34,6 +34,7 @@ before_script:
   - cp Flexion-app/deploy.sh ~/.m2/app
   - cp Flexion-app/build.rb ~/.m2/app
   - cp Flexion-app/flexionapp_image.png ~/.m2/app
+  - ls -l ~/.m2/app
 
 before_install:
   - chmod +x deploy.sh
