@@ -74,10 +74,6 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 
 ###### -- git add --all or add filename
 
-###### -- git update-index --add --chmod=+x deploy.sh ( to assign read/write permissions)
-
-###### -- git update-index --add --chmod=+x build.rb ( to assign read/write permissions)
-
 ###### -- git commit -m " message "
 
 ###### -- git push origin branch_name ( flexion-dev in this case)
