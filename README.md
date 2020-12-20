@@ -62,7 +62,7 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 
 ###### 3. Add instructions on how to use the app in the app interface
 
-###### 4. Fix width/height of the app canvas when the app open first time so user dont have to manually resize the app
+###### 4. Bind Return/Enter from keyboard to "Submit" button so user dont have to manually click the submit button.
 
 ###### 5. Add Organization logo and add colour to the app background
 
