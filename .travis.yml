@@ -33,6 +33,6 @@ before_script:
 
 script:
   # MAVEN PROJECTS:
-  - travis-s3-deploy/deploy.sh
+  - Flexion-app/deploy.sh
   # GRADLE PROJECTS:
   #- travis-s3-deploy/build-gradle.sh && travis-s3-deploy/deploy.sh
