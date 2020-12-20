@@ -125,7 +125,7 @@ travis_end
 travis_start "aws_cp"
 for file in $files
 do
-    aws s3 cp $file s3://$DEPLOY_BUCKET/app/
+    aws s3 sync $file s3://$DEPLOY_BUCKET/app
 done
 travis_end
 
