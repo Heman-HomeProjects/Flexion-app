@@ -25,7 +25,7 @@ def submit():
     numerical_entry = isNumeric_validation(numerical_value_entry)  ## numeric validation 
     student_unit_entry = isNumeric_validation(student_unit_of_response_entry) ## numeric validation
     temperatue_unit = ["kelvin","celsius","fahrenheit","rankine"] ## List of temperature units a user can select
-    volume_unit = ["liter","tablespoon","cubic inch","cup","cubic feet","gallon"] ## List of volume units a user can select
+    volume_unit = ["liters","tablespoons","cubic-inches","cups","cubic-feet","gallons"] ## List of volume units a user can select
 
     ## whenever a user enters the temperature or volumne units, the system automatically converts it to lower case to avoid case sensitivity and checks against the list defined above
     
@@ -48,12 +48,12 @@ def submit():
             "fahrenheit":{"celsius":float((numerical_entry-32) / 1.8),"Kevin": float((numerical_entry-32)* 1.8 + 273.15),"rankine":float(numerical_entry + 459.67)},
             "rankine":{"celsius":float((numerical_entry - 491.67)*(5/9)),"fahrenheit":float(numerical_entry - 459.67),"kelvin":float(numerical_entry * (5/9)) },
             "kelvin":{"celsius": float(numerical_entry - 273.15), "fahrenheit": float((numerical_entry - 273.15) * (9/5) +32),"rankine":float(numerical_entry * 1.8)},
-            "liter":{"gallon": float(numerical_entry / 3.785), "cup": float(numerical_entry * 4.227),"tablespoon":float(numerical_entry * 67.628),"cubic inch": float(numerical_entry * 61.024),"cubic feet":float(numerical_entry / 28.317)},
-            "gallon":{"liter": float(numerical_entry * 3.785), "cup": float(numerical_entry * 16),"tablespoon":float(numerical_entry * 256),"cubic inch": float(numerical_entry * 231),"cubic feet":float(numerical_entry / 7.481)},
-            "cup":{"liter": float(numerical_entry / 4.227), "gallon": float(numerical_entry / 16),"tablespoon":float(numerical_entry * 16),"cubic inch": float(numerical_entry * 14.438),"cubic feet":float(numerical_entry / 120)},
-            "tablespoon":{"liter": float(numerical_entry / 67.628), "gallon": float(numerical_entry / 256),"cup":float(numerical_entry / 16),"cubic inch": float(numerical_entry / 1.108),"cubic feet":float(numerical_entry / 1915)},
-            "cubic inch":{"liter": float(numerical_entry / 61.024), "gallon": float(numerical_entry / 231),"cup":float(numerical_entry / 14.438),"tablespoon": float(numerical_entry * 1.108),"cubic feet":float(numerical_entry / 1728)},
-            "cubic feet":{"liter": float(numerical_entry * 28.317), "gallon": float(numerical_entry * 7.481),"cup":float(numerical_entry * 120),"tablespoon": float(numerical_entry * 1915.01),"cubic inch":float(numerical_entry * 1728)}
+            "liters":{"gallons": float(numerical_entry / 3.785), "cups": float(numerical_entry * 4.227),"tablespoons":float(numerical_entry * 67.628),"cubic-inches": float(numerical_entry * 61.024),"cubic-feet":float(numerical_entry / 28.317)},
+            "gallons":{"liters": float(numerical_entry * 3.785), "cups": float(numerical_entry * 16),"tablespoons":float(numerical_entry * 256),"cubic-inches": float(numerical_entry * 231),"cubic-feet":float(numerical_entry / 7.481)},
+            "cups":{"liters": float(numerical_entry / 4.227), "gallons": float(numerical_entry / 16),"tablespoons":float(numerical_entry * 16),"cubic-inches": float(numerical_entry * 14.438),"cubic-feet":float(numerical_entry / 120)},
+            "tablespoons":{"liters": float(numerical_entry / 67.628), "gallons": float(numerical_entry / 256),"cups":float(numerical_entry / 16),"cubic-inches": float(numerical_entry / 1.108),"cubic-feet":float(numerical_entry / 1915)},
+            "cubic-inches":{"liters": float(numerical_entry / 61.024), "gallons": float(numerical_entry / 231),"cups":float(numerical_entry / 14.438),"tablespoons": float(numerical_entry * 1.108),"cubic-feet":float(numerical_entry / 1728)},
+            "cubic-feet":{"liters": float(numerical_entry * 28.317), "gallons": float(numerical_entry * 7.481),"cups":float(numerical_entry * 120),"tablespoons": float(numerical_entry * 1915.01),"cubic-inches":float(numerical_entry * 1728)}
         }
     for key,value in dic.items():
         if unit_entry == key:

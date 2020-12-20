@@ -6,7 +6,7 @@
 
 ###### -- temperatures between kelvin, celsius, fahrenheit, and rankine
 
-###### -- volumes between liter, tablespoon, cubic inch, cups, cubic feet, and gallon
+###### -- volumes between liters, tablespoons, cubic-inches, cups, cubic-feet, and gallons
 
 ## Steps to use the app
 
@@ -58,15 +58,15 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 
 ###### 2. Fix the error output values to define if the non-numeric value is provided in the " Input Numerical Value " or " Student's Unit of Response " box for better user experience
 
-###### 2. Fix indentation of the labels to "Left aligned"
+###### 3. Fix indentation of the labels to "Left aligned"
 
-###### 3. Add instructions on how to use the app in the app interface
+###### 4. Add instructions on how to use the app in the app interface
 
-###### 4. Bind Return/Enter from keyboard to "Submit" button so user dont have to manually click the submit button.
+###### 5. Bind Return/Enter from keyboard to "Submit" button so user dont have to manually click the submit button.
 
-###### 5. Add Organization logo and add colour to the app background
+###### 6. Add Organization logo and add colour to the app background
 
-###### 6. Add app title on the top beside the logo
+###### 7. Add app title on the top beside the logo
 
 ## CI/CD
 
