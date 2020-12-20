@@ -38,11 +38,15 @@ _If a user enters a non-numeric values in either " Input Numerical Value " or " 
 
 ###### 3. Flexion is the dev branch and main is the master branch
 
-###### 4. Once cloned, open the terminal on your system and cd into the "Flexion" folder on your system where you cloned your repo and run command **"python flexionapp.py"**
+###### 4. Once cloned, open the terminal on your system and cd into the "Flexion-app" folder on your system where you cloned your repo and run command **"python flexionapp.py"**
 
 ###### 5. If your system has both python 2.xx and 3.xx version installed, you may have to run "python3 flexionapp.py" to specify to run with python version 3
 
 ###### 6. Once a user intiate the command, a small app with GUI interface will open up and you can follow steps laid above to use the app.
+
+###### The logo would look like this on your machine dock
+
+![image](https://user-images.githubusercontent.com/8081454/102726008-c333ee00-42e0-11eb-937c-6460249dafc3.png)
 
 ###### -- The user interface of the app looks like below
 
