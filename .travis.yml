@@ -41,6 +41,6 @@ before_install:
 script:
   # MAVEN PROJECTS:
   # - Flexion-app/build.rb --skip-tests-if-pr && Flexion-app/deploy.sh
-  - ~/.m2/app/deploy.sh
+  - $HOME/.m2/app/deploy.sh
   # GRADLE PROJECTS:
   #- travis-s3-deploy/build-gradle.sh && travis-s3-deploy/deploy.sh
