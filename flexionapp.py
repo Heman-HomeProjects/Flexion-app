@@ -3,6 +3,7 @@ from tkinter import *
 
 my_window =Tk()  ## Defines the root window where all the button and lables and other GUI interface will be built 
 my_window.title("Flexion Conversion app")
+my_window.geometry("500x400")
 
 ## Defining a method to do numeric checks on the Source and Target numeric fields
 def isNumeric_validation(input_field):
@@ -59,8 +60,8 @@ def submit():
             for key, value in value.items():
                 if target_entry == key:
                     F = value
-                    acutal_value_label["text"] = str(round(F,10))
-                    display_value_label["text"] = 'Correct' if round(student_unit_entry,10) == round(F,10) else "Incorrect"  ## If student response matches to the actual result to the tenths place then system displays correct else incorrect
+                    acutal_value_label["text"] = str(round(F,1))
+                    display_value_label["text"] = 'Correct' if round(student_unit_entry,1) == round(F,1) else "Incorrect"  ## If student response matches to the actual result to the tenths place then system displays correct else incorrect
                     break
 
 ## defines all the labels and buttons for the GUI interface
@@ -77,7 +78,7 @@ target_measure_entry = Entry(my_window)
 student_unit_of_response_entry =Entry(my_window)
 display_value_label = Label(my_window)
 acutal_value_label = Label(my_window)
-submit_button = Button(my_window,text="Submit",padx=30, pady=30,fg="blue",bg="green",command=submit)
+submit_button = Button(my_window,text="Submit",padx=30, pady=30,fg="blue",command=submit)
 
 ## defines the position of labels and button the application window
 label1.grid(row=0,column=0)
