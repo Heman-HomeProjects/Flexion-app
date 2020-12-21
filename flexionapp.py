@@ -27,10 +27,10 @@ def submit():
     temperatue_unit = ["kelvin","celsius","fahrenheit","rankine"] ## List of temperature units a user can select
     volume_unit = ["liters","tablespoons","cubic-inches","cups","cubic-feet","gallons"] ## List of volume units a user can select
 
-    ## whenever a user enters the temperature or volumne units, the system automatically converts it to lower case to avoid case sensitivity and checks against the list defined above
+    ## whenever a user enters the temperature or volumne units, the system automatically converts it to lower case and also removes spaces to avoid case sensitivity and checks against the list defined above
     
-    unit_entry = unit_measure_entry.get().lower() 
-    target_entry = target_measure_entry.get().lower()
+    unit_entry = unit_measure_entry.get().lower().strip()
+    target_entry = target_measure_entry.get().lower().strip()
 
     ## Logic to define that Source and target unit conversions should be of the same type else it genereates the error " Invalid Unit of Measure" 
     if unit_entry in temperatue_unit:
